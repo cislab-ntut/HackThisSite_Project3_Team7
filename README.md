@@ -78,6 +78,8 @@ print TO
 				echo "\$_GET['email']=" . $_GET['email'] . '<br>';
 				echo gettype($user) . ' $user=' . ($user ? 'true' : 'false') . '<br>';
 				echo gettype($email) . ' $email=' . ($email ? 'true' : 'false') . '<br>';
+				echo gettype($user) . ' $user=' . $user . '<br>';
+				echo gettype($email) . ' $email=' . $email . '<br>';
 				echo gettype($result) . " \$result=" . $result . '<br>'; 
 				echo gettype($result['email']) . " \$result['email']=" . $result['email'] . '<br>';
                 if ($email == $result['email'])
