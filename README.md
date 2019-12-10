@@ -74,21 +74,21 @@ print TO
                 $email = mysql_real_escape_string($_GET['email']);
                 $result= mysql_fetch_assoc(mysql_query("SELECT `email` FROM `members` WHERE name = '$user'"));
                 $reply = false;
-				echo "\$_GET['name']=" . $_GET['name'] . '<br>';
-				echo "\$_GET['email']=" . $_GET['email'] . '<br>';
-				echo gettype($user) . ' $user=' . ($user ? 'true' : 'false') . '<br>';
-				echo gettype($email) . ' $email=' . ($email ? 'true' : 'false') . '<br>';
-				echo gettype($user) . ' $user=' . $user . '<br>';
-				echo gettype($email) . ' $email=' . $email . '<br>';
-				echo gettype($result) . " \$result=" . $result . '<br>'; 
-				echo gettype($result['email']) . " \$result['email']=" . $result['email'] . '<br>';
+		echo "\$_GET['name']=" . $_GET['name'] . '<br>';
+		echo "\$_GET['email']=" . $_GET['email'] . '<br>';
+		echo gettype($user) . ' $user=' . ($user ? 'true' : 'false') . '<br>';
+		echo gettype($email) . ' $email=' . ($email ? 'true' : 'false') . '<br>';
+		echo gettype($user) . ' $user=' . $user . '<br>';
+		echo gettype($email) . ' $email=' . $email . '<br>';
+		echo gettype($result) . " \$result=" . $result . '<br>'; 
+		echo gettype($result['email']) . " \$result['email']=" . $result['email'] . '<br>';
                 if ($email == $result['email'])
                 {
                         $reply = true;
                 }
         } else {
-				echo "\$_GET['name']=" . $_GET['name'] . '<br>';
-				echo "\$_GET['email']=" . $_GET['email'] . '<br>';
+		echo "\$_GET['name']=" . $_GET['name'] . '<br>';
+		echo "\$_GET['email']=" . $_GET['email'] . '<br>';
                 $reply = false;
         }
         echo ($reply) ? 1 : 0;
