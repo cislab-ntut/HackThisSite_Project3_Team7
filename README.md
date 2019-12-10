@@ -109,7 +109,7 @@ if ($email == $result['email'])
 ```
 >`NULL == NULL`在php為True，在其他程式語言或系統上不一定相同
 #### 總結
-似乎是因為兩年沒有碰php，三年沒碰mysql，我竟然沒有在第一時間發現**mysql_query()之前沒有建立MySQL連線**，就直接做了SQL injection測試。這一題如果硬要下去猜的話其實有很高的機會猜出正確答案，但要了解整個前因後果仍然需要具備一點php的概念。裡面使用的跳脫字元處理函數`mysql_real_escape_string()`過去從未使用過，透過官方[使用手冊](https://www.php.net/manual/en/function.mysql-real-escape-string.php)也了解到在php7.0以後正式移除功能。而`NULL == NULL`更是第一次碰到的觀念，搜尋相關資料的同時也找到了`False == False`為False，儘管題目有些簡單，但我著實學到了不少東西。
+似乎是因為兩年沒有碰php，三年沒碰mysql，我竟然沒有在第一時間發現**mysql_query()之前沒有建立MySQL連線**，就直接做了SQL injection測試。這一題如果硬要下去猜的話其實有很高的機會猜出正確答案，但要了解整個前因後果仍然需要具備一點php的概念。裡面使用的跳脫字元處理函數`mysql_real_escape_string()`過去從未使用過，透過官方[使用手冊](https://www.php.net/manual/en/function.mysql-real-escape-string.php)了解在php7.0以後正式移除功能。而`NULL == NULL`更是第一次碰到的觀念，搜尋相關資料的同時也找到了`False == False`為False的觀念，儘管題目有些簡單，但我著實學到了不少東西。
 
 ## 1063304 陳無忌
 
