@@ -17,15 +17,29 @@ out TO
 3. 接著分析第二行`CREATE int AS 2`，看到`CREATE int`就會理解為**建立一個整數型態變數名稱`AS`且初始值為2**
 4. 第三行`DESTROY int AS 0`我認為比較不容易分析，首先假設這裡是刪除變數`AS`，但從第四行看到`AS`仍然有被使用到，於是採用第二種假設，`DESTROY`為減法，所以**變成`AS = AS - 0`**
 5. 第四行`ANS var AS Create + TO`一開始沒有什麼頭緒，第一種假設，這裡的`+ TO`是串接一個字串`TO`，也就是`AS = AS + TO`，第二種假設，不管`ANS var`跟`+`的意義，**單純假設`TO = AS`**
-6. 首先嘗試內容中的關鍵字組合，TO、20、20TO、2TO、AS、ANS、var等皆錯誤，**經過以上粗體字的思路後得到答案為2**
+6. 首先嘗試內容中的關鍵字組合，TO、20、20TO、2TO、AS、ANS、var等皆錯誤，經過以上**粗體字**的思路後，得到**答案為2**
+```
+function notr.eal
+variable named 'AS' = 2
+AS = AS - 0
+variable named 'TO' = AS
+print TO
+```
 #### 其他思路
-後來試著搜尋其他人的想法，看到其中一種想法是當作組合語言來思考
+後來試著搜尋其他人的[想法](http://htstutorial.blogspot.com/2011/01/extbasic-mission-3.html)，看到其中一種想法是當作組合語言來思考
 1. 第一行一樣是function宣告
 2. 第二、三行將其理解為PUSH變數2、0到名為`AS`的stack裡面
 3. 第四行是將`AS`的變數POP兩個出來放到`TO`，此時`TO=02`也就是2
 4. 輸出變數`TO`
+```
+function notr.eal
+PUSH 2 into AS
+PUSH 0 into AS
+POP two into TO
+print TO
+```
 #### 總結
-由於題目只有給五行的範例程式，難以分析出此程式語言的詳細語法規範，因此可以推測這是在考我們分析的同時發揮一點想像力，也並不需要全部依照關鍵字的英文意義去推論，在這個網站上過於死板的黑客過程只會讓自己心態炸裂。
+參考他人思路後，可以看到對於第一行及最後一行的理解大部分人應該都是差不多的，關鍵分析主要仍然在二三四行。由於題目只有給五行的範例程式，難以分析出此程式語言的詳細語法規範，因此可以推測這是在考我們分析的同時發揮一點想像力，也並不需要全部依照關鍵字的英文意義去推論，~~在這個網站上過於死板的黑客過程只會讓自己心態炸裂。~~
 ### Extbasic 13. I do validate. I really do.
 ```php
 <?php
@@ -44,10 +58,16 @@ out TO
         echo ($reply) ? 1 : 0;
 ?>
 ```
->The script's filename is vrfy.phpMake the script reply 1.  Use the relative path. You don't know any users or emails.
+>The script's filename is vrfy.php Make the script reply 1.  Use the relative path. You don't know any users or emails.  
+
+>給你一段php程式碼並告訴你它的檔案名稱是vrfy.php，希望你讓這段程式碼印出1
 #### 思路
-
-
+1. 看到程式碼出現`$_GET`關鍵字，就知道跟GET REQUEST Method有關，首先修改網站網址路徑找看看有沒有這個網頁，但是找不到。
+2. 看到`mysql_query()`，嘗試在變數中使用SQL injection`vrfy.php?name=or1=1/*&email=or1=1/*`，嘗試放入亂數、字串`vrfy.php?name=a&email=a`，以上測試於HackThisSite輸入答案皆錯誤
+3. 既然沒有給我網頁測試，那我就自己放到[網站](https://molrobot.azurewebsites.net/vrfy.php)上去跑，測試發現`vrfy.php?name=a&email=a`可以印出1，但並不是題目想要的答案
+4. 搜尋[論壇](https://www.hackthissite.org/forums/viewtopic.php?f=22&t=2753)得到標準答案為`vrfy.php?name=&email=`，發現論壇也有人說答案應該不唯一
+5. 
+6. 
 
 ## 1063304 陳無忌
 
