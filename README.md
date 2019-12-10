@@ -64,9 +64,9 @@ print TO
 #### 思路
 1. 看到程式碼出現`$_GET`關鍵字，就知道跟GET request method有關，首先修改網站網址路徑找看看有沒有這個網頁，但是找不到。
 2. 看到`mysql_query()`，嘗試在變數中使用SQL injection`vrfy.php?name=or1=1/*&email=or1=1/*`，嘗試放入亂數、字串`vrfy.php?name=a&email=a`，以上測試於HackThisSite輸入答案皆錯誤
-3. 既然沒有給我網頁測試，那我就自己放到[網站](https://molrobot.azurewebsites.net/vrfy.php)上去跑，測試發現`vrfy.php?name=a&email=a`可以印出1，但並不是題目想要的答案
+3. 既然沒有給我網頁測試，那我就自己放到[網站](https://molrobot.azurewebsites.net/vrfy.php?name=a&email=a)上去跑，測試發現`vrfy.php?name=a&email=a`可以印出1，但並不是題目想要的答案
 4. 搜尋[論壇](https://www.hackthissite.org/forums/viewtopic.php?f=22&t=2753)得到標準答案為`vrfy.php?name=&email=`，發現論壇也有人說答案應該不唯一
-5. 修改[網站](https://molrobot.azurewebsites.net/vrfy1.php)程式碼，嘗試將變數印出並觀察變化
+5. 修改[網站](https://molrobot.azurewebsites.net/vrfy1.php?name=abc&email=cba)程式碼，嘗試將變數印出並觀察變化
 ```
 <?php
         if (isset($_GET['name']) && isset($_GET['email'])) {
