@@ -67,7 +67,7 @@ print TO
 3. 既然沒有給我網頁測試，那我就自己放到[網站](https://molrobot.azurewebsites.net/vrfy.php?name=a&email=a)上去跑，測試發現`vrfy.php?name=a&email=a`可以印出1，但並不是題目想要的答案
 4. 搜尋[論壇](https://www.hackthissite.org/forums/viewtopic.php?f=22&t=2753)得到標準答案為`vrfy.php?name=&email=`，發現論壇也有人說答案應該不唯一
 5. 修改[網站](https://molrobot.azurewebsites.net/vrfy1.php?name=abc&email=cba)程式碼，嘗試將變數印出並觀察變化
-```
+```php
 <?php
         if (isset($_GET['name']) && isset($_GET['email'])) {
                 $user = mysql_real_escape_string($_GET['name']);
@@ -95,13 +95,13 @@ print TO
 ?>
 ```
 #### Key Point 1
-```
+```php
 $user = mysql_real_escape_string($_GET['name']);
 $email = mysql_real_escape_string($_GET['email']);
 ```
 >`mysql_real_escape_string()`使用前需要先建立MySQL連線，否則執行失敗回傳False
 #### Key Point 2
-```
+```php
 if ($email == $result['email'])
 {
         $reply = true;
