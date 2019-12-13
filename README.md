@@ -114,6 +114,22 @@ if ($email == $result['email'])
 ## 1063304 陳無忌
 
 ## 1061418 葉亭妤
+### Extbasic 9 - Captain Kirk learns perl!
+題目
+![](https://i.imgur.com/5ZHJ8rw.png)
+
+> 題目描述
+> 1. 前情概要：Kirk 隊長編寫 Perl 腳本給其他人使用
+> 2. 腳本功能：自動執行日誌紀錄，讓其他人能key進去並存檔
+> 3. 腳本問題：日誌只能記錄一個，會自動刪除過往所有日誌
+> 4. 修復要求：使日誌可以全部保存(修改程式碼)
+
+#### 解題想法
+1. 按下F12看code發現有好幾個超連結(hp.php / print.html / open.html) ~~看到超連結當然就是點下去啦~~
+2. 進去超連結找尋有用資訊
+[hp.php](https://www.hackthissite.org/hp.php) 看起來沒什麼幫助
+[print.html](https://perldoc.perl.org/functions/print.html) 看起來語法也都對，先看下一個
+[open.html](https://perldoc.perl.org/functions/open.html) 有找到相關資訊
 
 ## 1051406 徐崑華
 
