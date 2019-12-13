@@ -127,9 +127,9 @@ if ($email == $result['email'])
 #### 解題想法
 1. 按下F12看code發現有好幾個超連結(hp.php / print.html / open.html) ~~看到超連結當然就是點下去啦~~
 2. 進去超連結找尋有用資訊
-[hp.php](https://www.hackthissite.org/hp.php) 看起來沒什麼幫助
-[print.html](https://perldoc.perl.org/functions/print.html) 看起來語法也都對，先看下一個
-[open.html](https://perldoc.perl.org/functions/open.html) 有找到相關資訊
+- [hp.php](https://www.hackthissite.org/hp.php) 看起來沒什麼幫助
+- [print.html](https://perldoc.perl.org/functions/print.html) 看起來語法也都對，先看下一個
+- [open.html](https://perldoc.perl.org/functions/open.html) 有找到相關資訊
 
 ## 1051406 徐崑華
 
