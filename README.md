@@ -131,6 +131,45 @@ if ($email == $result['email'])
    - [hp.php](https://www.hackthissite.org/hp.php) 看起來沒什麼幫助
    - [print.html](https://perldoc.perl.org/functions/print.html) 看起來語法也都對，先看下一個
    - [open.html](https://perldoc.perl.org/functions/open.html) 有找到相關資訊
+3. 在open.html中找到與題目相關的內容
+```perl=
+print '> Hello Captain ' . $ENV{'USER'} . '.' . "\n";
+open(STARTREKLOG, '>/var/log/startrek');
+print '> Please enter your log data here, end with a "." on a single
+line.' . "\n";
+my $LogText;
+print '> ';
+while (<STDIN>) {
+       unless ($_ ne '.' . "\n") {
+               last;
+       }
+       $LogText .= $_;
+       print '> ';
+}
+
+print '> Log is being saved to /var/log/startrek' . "\n";
+$DateTime = localtime();
+print STARTREKLOG ' -- START OF LOG -- ' . "\n";
+print STARTREKLOG 'Date/Time: ' . $DateTime . "\n";
+print STARTREKLOG 'Log      : ' . $LogText;
+print STARTREKLOG ' -- END OF LOG -- ' . "\n";
+die('> Log saved! Now exiting.' . "\n");
+```
+觀察到題目上第二行 open 的 code
+```perl=
+open(STARTREKLOG, '>/var/log/startrek');
+``` 
+其中的 `>` 與網頁中的一段敘述有相關，仔細閱讀後發現 open 有不同模式  
+1. `>` or `NULL` mode：read 模式(讀取文件)
+2. `<` mode：write模式(截斷清空文件再創建新的文件)
+3. `>>` mode：write模式(打開文件並 append 在後面)
+
+由以上可推測出，由於Kerk隊長使用錯誤的open模式，才導致文件一直只能保存最後一筆的紀錄，所以我將open的模式從 `>` 改成 `>>` 得到答案是 
+```perl=
+open(STARTREKLOG, '>>/var/log/startrek');
+```
+#### 總結
+第一次接觸 perl ，也算蠻幸運有觀察到有用訊息，一開始題目就回答正確，也學習到 perl open()這個函式含有許多不同的模式，不僅上述說的幾點，還有像是前方加上加號的 `+>` 模式等等，學習到不少東西。
 
 ## 1051406 徐崑華
 
