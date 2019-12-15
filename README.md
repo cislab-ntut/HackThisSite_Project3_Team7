@@ -132,29 +132,6 @@ if ($email == $result['email'])
    - [print.html](https://perldoc.perl.org/functions/print.html) 看起來語法也都對，先看下一個
    - [open.html](https://perldoc.perl.org/functions/open.html) 有找到相關資訊
 3. 在open.html中找到與題目相關的內容
-```perl=
-print '> Hello Captain ' . $ENV{'USER'} . '.' . "\n";
-open(STARTREKLOG, '>/var/log/startrek');
-print '> Please enter your log data here, end with a "." on a single
-line.' . "\n";
-my $LogText;
-print '> ';
-while (<STDIN>) {
-       unless ($_ ne '.' . "\n") {
-               last;
-       }
-       $LogText .= $_;
-       print '> ';
-}
-
-print '> Log is being saved to /var/log/startrek' . "\n";
-$DateTime = localtime();
-print STARTREKLOG ' -- START OF LOG -- ' . "\n";
-print STARTREKLOG 'Date/Time: ' . $DateTime . "\n";
-print STARTREKLOG 'Log      : ' . $LogText;
-print STARTREKLOG ' -- END OF LOG -- ' . "\n";
-die('> Log saved! Now exiting.' . "\n");
-```
 觀察到題目上第二行 open 的 code
 ```perl=
 open(STARTREKLOG, '>/var/log/startrek');
