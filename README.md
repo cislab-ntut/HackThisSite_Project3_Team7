@@ -133,7 +133,7 @@ if ($email == $result['email'])
    - [open.html](https://perldoc.perl.org/functions/open.html) 有找到相關資訊
 3. 在open.html中找到與題目相關的內容
 觀察到題目上第二行 open 的 code
-```perl=
+```perl
 open(STARTREKLOG, '>/var/log/startrek');
 ``` 
 其中的 `>` 與網頁中的一段敘述有相關，仔細閱讀後發現 open 有不同模式  
@@ -142,7 +142,7 @@ open(STARTREKLOG, '>/var/log/startrek');
 3. `>>` mode：write模式(打開文件並 append 在後面)
 
 由以上可推測出，由於Kerk隊長使用錯誤的open模式，才導致文件一直只能保存最後一筆的紀錄，所以我將open的模式從 `>` 改成 `>>` 得到答案是 
-```perl=
+```perl
 open(STARTREKLOG, '>>/var/log/startrek');
 ```
 #### 總結
