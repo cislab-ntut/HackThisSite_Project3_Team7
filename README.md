@@ -178,7 +178,7 @@ fi
 
 首行的`#!`宣告這個script所使用的shell，後面接著`/bin/sh`即為shell的路徑。
 
-`rm OK`為移除名為`OK`的檔案
+`rm OK`：移除名為`OK`的檔案
 
 `sed -E "s/eval/safeeval/" <exec.php >tmp && touch OK`
 
@@ -198,6 +198,12 @@ fi
 
 本行指令的目的為，當`sed`更改檔案成功之後，便建立一個名為`OK`的檔案。
 
+```
+if [ -f OK ]; then
+        rm exec.php && mv tmp exec.php
+fi
+```
+由於前面的指令，`OK`只會在`sed`完成修改後生成，在這裡使用`[ -f OK ]`來檢查`OK`是否存在，若存在便將原本的`exec.php`用更改後的`tmp`取代，`mv tmp exec.php`則是用來將`tmp`的檔名改為`exec.php`。
 ## 1061418 葉亭妤
 ### Extbasic 9 - Captain Kirk learns perl!
 
