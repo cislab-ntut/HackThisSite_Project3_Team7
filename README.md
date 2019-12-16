@@ -151,3 +151,22 @@ open(STARTREKLOG, '>>/var/log/startrek');
 ## 1051406 徐崑華
 
 ## 1060346 唐瑨
+### Extbasic 3. FindaFake 1
+>So Bill Gates was tired of VisualBasic and now did some Perl, too bad; this script has a security flaw that allows everyone access to the company records! Fix the flaw for him!
+
+>比爾蓋茨厭倦了VB,他現在想做些perl,但不幸運的是,這個腳本有點缺陷,就是會允許所有人進入這個系統！請幫忙修好它！
+```
+#!/usr/bin/perl
+ 
+chomp(my $User = `/usr/bin/whoami`);
+ 
+print "Checking your access level...\n";
+ 
+if ($User == 'BillGates')
+{
+    print "Authorized! Here are the company records:\n" . `cat /home/BillGates/CompanyRecords.db`;
+    die("Closing...\n");
+}
+ 
+die("You're not authorized!\n");
+```
