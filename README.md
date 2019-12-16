@@ -190,6 +190,14 @@ fi
 
 此指令中的`s`為substitute的縮寫，其功能為將他之後的第一個字串`eval`用下個字串`safeeval`代替，要被代替的字串可以用reguler expression來表示。
 
+`<exec.php`sed支援std input，此行將`exec.php`作為其stdin作為輸入。
+`>tmp`將sed編輯過後的檔案輸出到`tmp`的檔案中。
+`&&`在左邊指令的執行結果回傳為true後(即執行成功)，才會執行右邊的指令。
+`touch OK`
+
+`touch`的功能可以建立檔案以及修改檔案、目錄等的時間戳記，在此沒有參數的用法中，若檔案不存在，便會建立一個空白的新檔案。
+本行指令的目的為，當`sed`更改檔案成功之後，便建立一個名為`OK`的檔案。
+
 ## 1061418 葉亭妤
 ### Extbasic 9 - Captain Kirk learns perl!
 
