@@ -133,8 +133,10 @@ DESTROY int AS 0
 ANS var AS Create + TO
 out TO
 ```
-2. 依照個人分析的想法，上方`CREATE int AS 2`以及`DESTROY int AS 0`的宣告代表著`int`型態的`CREATE`與`DESTROY`分別被指派`2`與`0`的值。
-3. 
+2. 依照個人分析的想法，上方`CREATE int AS 2`以及`DESTROY int AS 0`的宣告代表著`int`型態的`CREATE`與`DESTROY`分別被指派`2`與`0`的數值。
+3. 依此類推，本題`var int as in`與`int var as in`分別代表`int`型態的`var`變數與`var`型態的`int`變數，指派的數值皆為`in`。
+4. 根據本題程式上方`{user types 6,7}`判斷，`6`跟`7`為本題的輸入，因此前面所提到的`in`分別為`6`與`7`。
+5. 將`var`與`int`變數所輸入的`6`與`7`兩個數值，按照`out`的順序輸出，即為答案`67`。
 
 ## 1061418 葉亭妤
 ### Extbasic 9 - Captain Kirk learns perl!
