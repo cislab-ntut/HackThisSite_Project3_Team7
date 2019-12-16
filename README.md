@@ -142,6 +142,7 @@ out TO
 
 ### Extbasic 5 - Fix the script
 >Notice: do not use sed -r. This only works for linux. Instead use sed -E.
+
 >Sam wants certain users to be able to run limited commands from a PHP page. He created a function called safeeval to run these commands. However on one page he neglected to use safeeval and instead used eval(). Safeeval will fail if a command given should not run.
 >Sam then created a shell script to fix the error.
 
@@ -174,6 +175,7 @@ fi
 本題的要求為修復上方shell script的錯誤，由於解題的方式為shell script的修正，因此將對於本題shell script的語法進行說明以及除錯。
 #### 題目講解
 `#!/bin/sh`
+
 首行的`#!`宣告這個script所使用的shell，後面接著`/bin/sh`即為shell的路徑。
 
 ## 1061418 葉亭妤
