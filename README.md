@@ -170,6 +170,9 @@ if [ -f OK ]; then
 fi
 ```
 >Fix the incorrect line in the shell script (and use the SAME spacing).
+#### 題目說明
+本題的要求為修復上方shell script的錯誤，由於解題的方式為shell script的修正，因此將對於本題shell script的語法進行說明以及除錯。
+#### 題目講解
 
 ## 1061418 葉亭妤
 ### Extbasic 9 - Captain Kirk learns perl!
