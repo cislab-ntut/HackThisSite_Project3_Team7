@@ -206,6 +206,8 @@ fi
 本題shell script的核心為`sed`的取代功能，而在本題中，`"s/eval/safeeval/"`缺少了一個flag，若執行本指令，`sed`只會取代所搜尋到的第一個字串，因此需要在其後方加上`g`，即`"s/eval/safeeval/g"`。
 
 因此此題解答為`sed -E "s/eval/safeeval/g" <exec.php >tmp && touch OK`。
+#### 總結
+本題有著對於shell script以及sed語法認識的需求，而在查詢本題的種種語法後，認識並瞭解了許多新的語法，以及其豐富的組合用法，使我獲益良多。
 
 ## 1061418 葉亭妤
 ### Extbasic 9 - Captain Kirk learns perl!
