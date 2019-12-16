@@ -172,6 +172,7 @@ fi
 ```
 >Fix the incorrect line in the shell script (and use the SAME spacing).
 #### 題目說明
+Sam不小心在一個頁面中使用了eval()而不是safeeval()，因此寫了一個shell script來解決這個問題。
 本題的要求為修復上方shell script的錯誤，由於解題的方式為shell script的修正，因此將對於本題shell script的語法進行說明以及除錯。
 #### 題目講解
 `#!/bin/sh`：首行的`#!`宣告這個script所使用的shell，後面接著`/bin/sh`即為shell的路徑。
