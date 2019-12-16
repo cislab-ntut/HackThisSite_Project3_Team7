@@ -177,6 +177,14 @@ fi
 `#!/bin/sh`
 
 首行的`#!`宣告這個script所使用的shell，後面接著`/bin/sh`即為shell的路徑。
+`rm OK`為移除名為`OK`的檔案
+`sed -E "s/eval/safeeval/" <exec.php >tmp && touch OK`
+
+`sed`為stream editor，有著對資料特定的字串進行新增、刪除、取代等等的功能。
+`-E`參數可連接多個sed script，若只有一個sed script則可省略。
+`"s/eval/safeeval/"`
+
+此指令中的`s`為substitute的縮寫，其功能為將他之後的第一個字串`eval`用下個字串`safeeval`代替，要被代替的字串可以用reguler expression來表示。
 
 ## 1061418 葉亭妤
 ### Extbasic 9 - Captain Kirk learns perl!
