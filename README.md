@@ -183,17 +183,23 @@ die("You're not authorized!\n");
 
 #### 知識擴展
 因為搜索資料時發現很多語言都會出現 &nbsp;字符串比較&nbsp; 和&nbsp; 常規數值比較 &nbsp;的不同方法，所以查閱相關知識做了一個小的總結: <br>
-``Java中``：<br>
+>Java中：
+
   &nbsp; &nbsp; &nbsp; &nbsp; `==`比較的是變量之間的內存地址<br>
  &nbsp; &nbsp;  &nbsp; &nbsp; `equals`比較的是兩變量的內容<br>
   &nbsp; &nbsp;&nbsp; &nbsp;  所以通常都用`equals`比較字符串內容，數字一般用`==`來比較<br>
-``C#中``：<br>
+  
+>C#中：
+
   &nbsp; &nbsp;&nbsp; &nbsp;  `==`操作比較的是兩個變量的值是否相等，對於引用型變量表示的是兩個變量在堆中存儲的地址是否相同，即棧中的內容是否相同<br>
  &nbsp; &nbsp; &nbsp; &nbsp;  `equals`操作表示的兩個變量是否是對同壹個對象的引用，即堆中的內容是否相同。<br>
-``Python中``<br>
+ 
+>Python中
+
   &nbsp; &nbsp;&nbsp; &nbsp;  `is`的作用是用來檢查對象的標示符是一致，也就是比較兩個對象在內存中的地址是否一樣<br>
   &nbsp; &nbsp;&nbsp; &nbsp;  `==`用來檢查兩個對象是否相等<br>
-``C++中``<br>
+  
+>C++中
   &nbsp; &nbsp;&nbsp; &nbsp;  `==`是判斷引用是否相同<br>
  &nbsp; &nbsp; &nbsp; &nbsp;  `equals()`指的是值是否相同。
   
