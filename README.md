@@ -117,14 +117,24 @@ if ($email == $result['email'])
 >I have made up a language for you to decipher. This is slightly harder. What is the output of this program?
 >This is a REAL language with REAL rules. This is practice for obfustication or encrypted functions.
 
->{user types 6,7}
+`{user types 6,7}`
 ```
 BEGIN F.ake
 var int as in
 int var as in
 out var int
 ```
-
+#### 思路
+1. 本題與上一題'FindaFake 1'為類似的分析題，因此首先參考上一題與這題語法上的相似之處。
+```
+BEGIN notr.eal
+CREATE int AS 2
+DESTROY int AS 0
+ANS var AS Create + TO
+out TO
+```
+2. 依照個人分析的想法，上方`CREATE int AS 2`以及`DESTROY int AS 0`的宣告代表著`int`型態的`CREATE`與`DESTROY`分別被指派`2`與`0`的值。
+3. 
 
 ## 1061418 葉亭妤
 ### Extbasic 9 - Captain Kirk learns perl!
