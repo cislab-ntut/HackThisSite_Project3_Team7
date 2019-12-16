@@ -151,7 +151,7 @@ open(STARTREKLOG, '>>/var/log/startrek');
 ## 1051406 徐崑華
 
 ## 1060346 唐瑨
-### Extbasic 3. FindaFake 1
+### Extbasic 8 Perl is a bitch sometimes
 >So Bill Gates was tired of VisualBasic and now did some Perl, too bad; this script has a security flaw that allows everyone access to the company records! Fix the flaw for him!
 
 >比爾蓋茨厭倦了VB,他現在想做些perl,但不幸運的是,這個腳本有點缺陷,就是會允許所有人進入這個系統！請幫忙修好它！
@@ -185,23 +185,23 @@ die("You're not authorized!\n");
 因為搜索資料時發現很多語言都會出現 &nbsp;字符串比較&nbsp; 和&nbsp; 常規數值比較 &nbsp;的不同方法，所以查閱相關知識做了一個小的總結: <br>
 >Java中：
 
-  &nbsp; &nbsp; &nbsp; &nbsp; `==`比較的是變量之間的內存地址<br>
- &nbsp; &nbsp;  &nbsp; &nbsp; `equals`比較的是兩變量的內容<br>
-  &nbsp; &nbsp;&nbsp; &nbsp;  所以通常都用`equals`比較字符串內容，數字一般用`==`來比較<br>
+  &nbsp; &nbsp; `==`比較的是變量之間的內存地址<br>
+  &nbsp; &nbsp; `equals`比較的是兩變量的內容<br>
+  &nbsp; &nbsp;  所以通常都用`equals`比較字符串內容，數字一般用`==`來比較<br>
   
 >C#中：
 
-  &nbsp; &nbsp;&nbsp; &nbsp;  `==`操作比較的是兩個變量的值是否相等，對於引用型變量表示的是兩個變量在堆中存儲的地址是否相同，即棧中的內容是否相同<br>
- &nbsp; &nbsp; &nbsp; &nbsp;  `equals`操作表示的兩個變量是否是對同壹個對象的引用，即堆中的內容是否相同。<br>
+ &nbsp; &nbsp;  `==`操作比較的是兩個變量的值是否相等，對於引用型變量表示的是兩個變量在堆中存儲的地址是否相同，即棧中的內容是否相同<br>
+  &nbsp; &nbsp;  `equals`操作表示的兩個變量是否是對同壹個對象的引用，即堆中的內容是否相同。<br>
  
 >Python中
 
-  &nbsp; &nbsp;&nbsp; &nbsp;  `is`的作用是用來檢查對象的標示符是一致，也就是比較兩個對象在內存中的地址是否一樣<br>
-  &nbsp; &nbsp;&nbsp; &nbsp;  `==`用來檢查兩個對象是否相等<br>
+  &nbsp; &nbsp;  `is`的作用是用來檢查對象的標示符是一致，也就是比較兩個對象在內存中的地址是否一樣<br>
+  &nbsp; &nbsp;  `==`用來檢查兩個對象是否相等<br>
   
 >C++中
-  &nbsp; &nbsp;&nbsp; &nbsp;  `==`是判斷引用是否相同<br>
- &nbsp; &nbsp; &nbsp; &nbsp;  `equals()`指的是值是否相同。
+  &nbsp; &nbsp;  `==`是判斷引用是否相同<br>
+  &nbsp; &nbsp;  `equals()`指的是值是否相同。
   
 #### 總結
   小小的語法錯誤可能會導致整個系統的安全性變得完全不可靠，所以在學習一門語言的時候需要學的比較細，比較扎實猜可以。
