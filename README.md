@@ -200,6 +200,7 @@ die("You're not authorized!\n");
   &nbsp; &nbsp;  `==`用來檢查兩個對象是否相等<br>
   
 >C++中
+
   &nbsp; &nbsp;  `==`是判斷引用是否相同<br>
   &nbsp; &nbsp;  `equals()`指的是值是否相同。
   
