@@ -140,6 +140,37 @@ out TO
 #### 總結
 本題與上一題相同，只能在短短幾行的程式中推測出程式的意思，在一開始的時候，由於沒有注意到最上方`{user types 6,7}`使用者輸入這一行，而被交錯混雜的`int`與`var`所混淆，但在注意到之後，由於`in`所代表的input非常好辨認，所以一下就試出答案了；本題需要一些能突破框架的思維能力，只要不過度執著於題目中的文字，便能順著input找到本題的答案。
 
+### Extbasic 5 - Fix the script
+>Notice: do not use sed -r. This only works for linux. Instead use sed -E.
+>Sam wants certain users to be able to run limited commands from a PHP page. He created a function called safeeval to run these commands. However on one page he neglected to use safeeval and instead used eval(). Safeeval will fail if a command given should not run.
+>Sam then created a shell script to fix the error.
+
+>Sam's uname is:
+>freeBSD 6.9
+
+>Here is the script:
+```
+<?php
+        include ('safe.inc.php');
+        if ($access=="allowed") {
+                eval($_GET['cmd']);
+                if (!empty($_GET['cmd2'])) {
+                        eval($_GET['cmd2']);
+                }
+        }
+?>
+```
+>Here is his shell script (for freeBSD):
+```
+#!/bin/sh
+rm OK
+sed -E "s/eval/safeeval/" <exec.php >tmp && touch OK
+if [ -f OK ]; then
+        rm exec.php && mv tmp exec.php
+fi
+```
+>Fix the incorrect line in the shell script (and use the SAME spacing).
+
 ## 1061418 葉亭妤
 ### Extbasic 9 - Captain Kirk learns perl!
 
