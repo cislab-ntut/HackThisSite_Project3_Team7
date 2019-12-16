@@ -124,7 +124,7 @@ var int as in
 int var as in
 out var int
 ```
-#### 思路
+#### 解題思路
 1. 本題與上一題**FindaFake 1**為類似的分析題，因此首先參考上一題與本題語法上的相似之處。
 ```
 BEGIN notr.eal
@@ -174,9 +174,7 @@ fi
 #### 題目說明
 本題的要求為修復上方shell script的錯誤，由於解題的方式為shell script的修正，因此將對於本題shell script的語法進行說明以及除錯。
 #### 題目講解
-`#!/bin/sh`
-
-首行的`#!`宣告這個script所使用的shell，後面接著`/bin/sh`即為shell的路徑。
+`#!/bin/sh`：首行的`#!`宣告這個script所使用的shell，後面接著`/bin/sh`即為shell的路徑。
 
 `rm OK`：移除名為`OK`的檔案
 
@@ -184,7 +182,7 @@ fi
 
 `sed`：為stream editor，有著對資料特定的字串進行新增、刪除、取代等等的功能。
 
-`-E`：參數可連接多個sed script，若只有一個sed script則可省略。
+`-E`：參數可連接多個sed script，若只有一個sed script則可省略。(經過測試，解答不需要此參數也能通過)
 
 `"s/eval/safeeval/"`：此指令中的`s`為substitute的縮寫，其功能為將他之後的第一個字串`eval`用下個字串`safeeval`代替，要被代替的字串可以用reguler expression來表示。
 
@@ -204,6 +202,11 @@ if [ -f OK ]; then
 fi
 ```
 由於前面的指令，`OK`只會在`sed`完成修改後生成，在這裡使用`[ -f OK ]`來檢查`OK`是否存在，若存在便將原本的`exec.php`用更改後的`tmp`取代，`mv tmp exec.php`則是用來將`tmp`的檔名改為`exec.php`。
+#### 題目解答
+本題shell script的核心為`sed`的取代功能，而在本題中，`"s/eval/safeeval/"`缺少了一個flag，若執行本指令，`sed`只會取代所搜尋到的第一個字串，因此需要在其後方加上`g`，即`"s/eval/safeeval/g"`。
+
+因此此題解答為`sed -E "s/eval/safeeval/g" <exec.php >tmp && touch OK`。
+
 ## 1061418 葉亭妤
 ### Extbasic 9 - Captain Kirk learns perl!
 
