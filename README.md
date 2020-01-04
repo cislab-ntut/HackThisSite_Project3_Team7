@@ -1,9 +1,10 @@
 # Project7-3_Hackthissite
+
 ## 1063337 張仲緯
 ### Extbasic 3. FindaFake 1
->Often times you will need to decipher a language which you can not find on google, or is encrypted in some wayI have made up a language for you to decipher. What is the output of this program?  
+>Often times you will need to decipher a language which you can not find on google, or is encrypted in some way. I have made up a language for you to decipher. What is the output of this program?  
 
->某人設計了一種程式語言，並寫了一支只有五行的程式，希望你去分析這支程式會輸出什麼內容
+>有人設計了一種程式語言，並寫了一支只有五行的程式，希望你去分析這支程式會輸出什麼內容。
 ```
 BEGIN notr.eal
 CREATE int AS 2
@@ -17,7 +18,7 @@ out TO
 3. 接著分析第二行`CREATE int AS 2`，看到`CREATE int`就會理解為**建立一個整數型態變數名稱`AS`且初始值為2**
 4. 第三行`DESTROY int AS 0`我認為比較不容易分析，首先假設這裡是刪除變數`AS`，但從第四行看到`AS`仍然有被使用到，於是採用第二種假設，`DESTROY`為減法，所以**變成`AS = AS - 0`**
 5. 第四行`ANS var AS Create + TO`一開始沒有什麼頭緒，第一種假設，這裡的`+ TO`是串接一個字串`TO`，也就是`AS = AS + TO`，第二種假設，不管`ANS var`跟`+`的意義，**單純假設`TO = AS`**
-6. 首先嘗試內容中的關鍵字組合，TO、20、20TO、2TO、AS、ANS、var等皆錯誤，經過以上**粗體字**的思路後，得到**答案為2**
+6. 嘗試內容中的關鍵字組合，TO、20、20TO、2TO、AS、ANS、var等皆錯誤，經過以上**粗體字**的思路後，得到**答案為2**
 ```
 function notr.eal
 variable named 'AS' = 2
@@ -40,6 +41,7 @@ print TO
 ```
 #### 總結
 參考他人思路後，可以看到對於第一行及最後一行的理解大部分人應該都是差不多的，關鍵分析主要仍然在二三四行。由於題目只有給五行的範例程式，難以分析出此程式語言的詳細語法規範，因此可以推測這是在考我們分析的同時發揮一點想像力，也並不需要全部依照關鍵字的英文意義去推論，~~在這個網站上過於死板的黑客過程只會讓自己心態炸裂。~~
+
 ### Extbasic 13. I do validate. I really do.
 ```php
 <?php
@@ -64,15 +66,15 @@ print TO
 #### 思路
 1. 看到程式碼出現`$_GET`關鍵字，就知道跟GET request method有關，首先修改網站網址路徑找看看有沒有這個網頁，但是找不到。
 2. 看到`mysql_query()`，嘗試在變數中使用SQL injection`vrfy.php?name=or1=1/*&email=or1=1/*`，嘗試放入亂數、字串`vrfy.php?name=a&email=a`，以上測試於HackThisSite輸入答案皆錯誤
-3. 既然沒有給我網頁測試，那我就自己放到[網站](https://molrobot.azurewebsites.net/vrfy.php?name=a&email=a)上去跑，測試發現`vrfy.php?name=a&email=a`可以印出1，但並不是題目想要的答案
+3. 既然沒有給我網頁測試，那我就自己放到[網站](https://molrobot.azurewebsites.net/hts/vrfy.php?name=a&email=a)上去跑，測試發現`vrfy.php?name=a&email=a`可以印出1，但並不是題目想要的答案
 4. 搜尋[論壇](https://www.hackthissite.org/forums/viewtopic.php?f=22&t=2753)得到標準答案為`vrfy.php?name=&email=`，發現論壇也有人說答案應該不唯一
-5. 修改[網站](https://molrobot.azurewebsites.net/vrfy1.php?name=abc&email=cba)程式碼，嘗試將變數印出並觀察變化
+5. 修改[網站](https://molrobot.azurewebsites.net/hts/vrfy_new.php?name=abc&email=cba)程式碼，嘗試將變數印出並觀察變化
 ```php
 <?php
         if (isset($_GET['name']) && isset($_GET['email'])) {
                 $user = mysql_real_escape_string($_GET['name']);
                 $email = mysql_real_escape_string($_GET['email']);
-                $result= mysql_fetch_assoc(mysql_query("SELECT `email` FROM `members` WHERE name = '$user'"));
+                $result = mysql_fetch_assoc(mysql_query("SELECT `email` FROM `members` WHERE name = '$user'"));
                 $reply = false;
 		echo "\$_GET['name']=" . $_GET['name'] . '<br>';
 		echo "\$_GET['email']=" . $_GET['email'] . '<br>';
