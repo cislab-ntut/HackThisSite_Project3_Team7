@@ -215,6 +215,58 @@ fi
 本題有著對於shell script以及sed語法認識的需求，而在查詢本題的種種語法後，認識並瞭解了許多新的語法，以及其豐富的組合用法，使我獲益良多。
 
 ## 1061418 葉亭妤
+### Extbasic 6 - Sucky Sysadmin
+
+#### 題目
+> This site is run by a new sysadmin who does not know much about web configuration
+The script is located at http://moo.com/moo.php
+Attempt to make the script think you are authed by entering the correct URI.
+>Here is the script (me.php):
+```php=
+<?php
+        $user = $_GET['user'];
+        $pass = $_GET['pass'];
+        if (isAuthed($user,$pass))
+        {
+                $passed=TRUE;
+        }
+        if ($passed==TRUE)
+        {
+                echo 'you win';
+        }
+?>
+        <form action="me.php" method="get">
+        <input type="text" name="user" />
+        <input type="password" name="pass" />
+        </form>
+<?php
+        function isAuthed($a,$b)
+        {
+                return FALSE;
+        }
+?>
+```
+#### 解題想法
+1. 首先看到題目上說的，題目是說要我們修改程式碼，讓這個 script 只有 author 才能進入正確的 URI
+2. 再看到程式碼中有 `isAuthed` 的 `if`條件，然後又是這個php中，所以我就去嘗試將網址的後面再加上條件，答案即為
+```php=
+http://moo.com/moo.php?passed==TRUE
+```
+#### 延伸
+php 中常見傳送資料的方法：使用 POST 跟 GET 的方法來傳遞資料
+1. POST方法
+   - 傳送的值藉由 POST 請求 HTTP 發送，將資料放在訊息主體內進行傳送
+   - 請求並不會被 cache 紀錄
+   - 對資料長度沒有限制
+   - 比 GET 更安全，較適合用來傳送隱密性高資料
+   - POST 傳值是運用 PHP `$POST['xxx']` 的變數接收
+2. GET方法
+   - 傳送的值藉由 GET 請求 URL 發送，將資料放在 header 內進行傳送 (網址看的到)
+   - 請求會被 cache 紀錄
+   - 依瀏覽器規定資料受到 QueryString 長度限制
+   - 安全性較低，較適合用來檢視資料
+   - GET 傳值是運用 PHP `$_GET['xxx']` 的變數接收
+
 ### Extbasic 9 - Captain Kirk learns perl!
 
 #### 題目
